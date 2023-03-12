@@ -62,7 +62,13 @@ public static class Methods
     /// <param name="stupid">A stupid list that that crashes if you try to access its Length property.</param>
     public static int Count(WorseList<string> stupid)
     {
-        throw new NotImplementedException();
+        int value = 0;
+        foreach (var item in stupid)
+        {
+            value++;
+        }
+
+        return value;
     }
 
     /// <summary>
