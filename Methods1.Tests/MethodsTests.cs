@@ -50,6 +50,7 @@ public class MethodsTests
     [InlineData(new[] { 1 }, 1)]
     [InlineData(new[] { 0 }, 0)]
     [InlineData(new[] { -1 }, -1)]
+    [InlineData(new[] { int.MinValue }, int.MinValue)]
     public void MaxList(int[] items, int expected)
     {
         var list = items.ToList();
