@@ -22,6 +22,23 @@ public static class Methods
     }
 
     /// <summary>
+    /// Returns the largest of the three inputs.
+    /// </summary>
+    public static int Max(int a, int b, int c)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    ///  Returns the largest item in the list.
+    /// </summary>
+    /// <exception cref="Exception">If the specified list is empty.</exception>
+    public static int Max(List<int> items)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
     /// Returns a new list containing the specified string repeated <paramref name="count"/> times.
     /// </summary>
     /// <param name="value">The string to repeat.</param>
@@ -32,11 +49,19 @@ public static class Methods
     }
 
     /// <summary>
+    /// Returns true if the specified list contains the specified item; otherwise; false.
+    /// </summary>
+    public static bool Contains(List<string> items, string value)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
     /// Returns the zero-based index of the specified string in the specified list.
-    /// Returns -1 if the list does not contain the string.
     /// </summary>
     /// <param name="haystack">The list to search.</param>
     /// <param name="needle">The string to look for in the list.</param>
+    /// <exception cref="Exception">If the item is not in the list.</exception>
     public static int IndexOf(List<string> haystack, string needle)
     {
         throw new NotImplementedException();
