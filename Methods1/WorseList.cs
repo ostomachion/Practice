@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 
 namespace Methods1;
+
+/// <summary>
+/// It's like <see cref="List{T}"/>, but it's worse because accessing the <see cref="Count"/> property throws an exception.
+/// </summary>
+/// <typeparam name="T">The type of elements in the list.</typeparam>
 public class WorseList<T> : IList<T>
 {
     private List<T> _value = new();
@@ -12,6 +17,9 @@ public class WorseList<T> : IList<T>
 
     public T this[int index] { get => ((IList<T>)_value)[index]; set => ((IList<T>)_value)[index] = value; }
 
+    /// <summary>
+    /// Sorry, you're not allowed to use this.
+    /// </summary>
     public int Count => throw new NotImplementedException();
 
     public bool IsReadOnly => ((ICollection<T>)_value).IsReadOnly;
