@@ -82,7 +82,6 @@ public static class Methods
     /// The first two values of the sequence are 0 and 1.
     /// For higher inputs, the output is the sum of the previous two terms.
     /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
     public static int Fibonacci(int n)
     {
         // Assume n isn't negative.
