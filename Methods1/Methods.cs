@@ -26,7 +26,7 @@ public static class Methods
     /// </summary>
     public static int Max(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        return Max(Max(a, b), c);
     }
 
     /// <summary>
@@ -35,7 +35,18 @@ public static class Methods
     /// <exception cref="Exception">If the specified list is empty.</exception>
     public static int Max(List<int> items)
     {
-        throw new NotImplementedException();
+        if (items.Count == 0)
+        {
+            throw new Exception();
+        }
+
+        var max = int.MinValue;
+        foreach (var item in items)
+        {
+            max = Max(max, item);
+        }
+
+        return max;
     }
 
     /// <summary>
@@ -59,7 +70,15 @@ public static class Methods
     /// </summary>
     public static bool Contains(List<string> items, string value)
     {
-        throw new NotImplementedException();
+        foreach (var item in items)
+        {
+            if (item == value)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
