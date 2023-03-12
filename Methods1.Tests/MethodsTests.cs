@@ -7,7 +7,7 @@ public class MethodsTests
     [InlineData(-1, false)]
     [InlineData(0, false)]
     [InlineData(1, true)]
-    [InlineData(int.MaxValue, false)]
+    [InlineData(int.MaxValue, true)]
     public void IsPositive(int value, bool expected)
     {
         var actual = Methods.IsPositive(value);
@@ -85,7 +85,7 @@ public class MethodsTests
     [Theory]
     [InlineData(new[] { "hello", "world" }, new[] { "hello" })]
     [InlineData(new[] { "hello" }, new string[0])]
-    [InlineData(new[] { "hello", "world", "" }, new[] { "hello, world" })]
+    [InlineData(new[] { "hello", "world", "" }, new[] { "hello", "world" })]
     public void RemoveLastItem(string[] items, string[] expected)
     {
         var list = items.ToList();
