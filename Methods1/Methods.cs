@@ -10,7 +10,7 @@ public static class Methods
     /// </summary>
     public static bool IsPositive(int value)
     {
-        throw new NotImplementedException();
+        return value > 0;
     }
 
     /// <summary>
@@ -18,7 +18,7 @@ public static class Methods
     /// </summary>
     public static int Max(int a, int b)
     {
-        throw new NotImplementedException();
+        return a > b ? a : b;
     }
 
     /// <summary>
@@ -28,7 +28,13 @@ public static class Methods
     /// <param name="count">The number of times the string should be repeated</param>
     public static List<string> Repeat(string value, int count)
     {
-        throw new NotImplementedException();
+        var list = new List<string>();
+        for (var i = 0; i < count; i++)
+        {
+            list.Add(value);
+        }
+
+        return list;
     }
 
     /// <summary>
@@ -39,7 +45,15 @@ public static class Methods
     /// <param name="needle">The string to look for in the list.</param>
     public static int IndexOf(List<string> haystack, string needle)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < haystack.Count; i++)
+        {
+            if (haystack[i] == needle)
+            {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     /// <summary>
@@ -50,8 +64,17 @@ public static class Methods
     /// <exception cref="NotImplementedException"></exception>
     public static int Fibonacci(int n)
     {
-        // Hint: Use recursion.
-        throw new NotImplementedException();
+        if (n == 0)
+        {
+            return 0;
+        }
+
+        if (n == 1)
+        {
+            return 1;
+        }
+
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 
     /// <summary>
@@ -60,7 +83,9 @@ public static class Methods
     /// <param name="items">The list to process.</param>
     public static string GetLastItem(List<string> items)
     {
-        throw new NotImplementedException();
+        var lastIndex = items.Count - 1;
+        return items[lastIndex];
+        // return items[^-1];
     }
 
     /// <summary>
@@ -69,7 +94,13 @@ public static class Methods
     /// <param name="items">The list to process.</param>
     public static List<string> RemoveLastItem(List<string> items)
     {
-        throw new NotImplementedException();
+        var value = new List<string>();
+        for (int i = 0; i < items.Count - 1; i++)
+        {
+            value.Add(items[i]);
+        }
+
+        return value;
     }
 
     /// <summary>
@@ -78,8 +109,23 @@ public static class Methods
     /// <param name="items">The list to process.</param>
     public static List<string> ReverseList(List<string> items)
     {
-        // This one is tricky.
-        // Hint: Use GetLastItem, RemoveLastItem, and recursion.
-        throw new NotImplementedException();
+        var value = new List<string>();
+
+        if (items.Count == 0)
+        {
+            return value;
+        }
+
+        var lastItem = GetLastItem(items);
+        var firstItems = RemoveLastItem(items);
+        var firstItemsReversed = ReverseList(firstItems);
+
+        value.Add(lastItem);
+        foreach (var item in firstItemsReversed)
+        {
+            value.Add(item);
+        }
+
+        return value;
     }
 }
