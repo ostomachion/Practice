@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace Methods1;
 public class WorseList<T> : IList<T>
 {
     private List<T> _value = new();
+
+    public WorseList(IEnumerable<T> items)
+    {
+        _value = items.ToList();
+    }
 
     public T this[int index] { get => ((IList<T>)_value)[index]; set => ((IList<T>)_value)[index] = value; }
 
