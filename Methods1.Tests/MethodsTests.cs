@@ -57,6 +57,19 @@ public class MethodsTests
     }
 
     [Theory]
+    [InlineData(new[] { "hello", "world" }, 2)]
+    [InlineData(new[] { "hello", "world", "okay", "whatever", "goodbye" }, 5)]
+    [InlineData(new[] { "single" }, 1)]
+    [InlineData(new[] { "", "", "" }, 3)]
+    [InlineData(new string[0], 0)]
+    public void Count(string[] items, int expected)
+    {
+        var stupid = new WorseList<string>(items);
+        var actual = Methods.Count(stupid);
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
     [InlineData(0, 0)]
     [InlineData(1, 1)]
     [InlineData(2, 1)]
