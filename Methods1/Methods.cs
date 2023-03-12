@@ -144,7 +144,7 @@ public static class Methods
     {
         var lastIndex = items.Count - 1;
         return items[lastIndex];
-        // return items[^-1];
+        // return items[^1];
     }
 
     /// <summary>
