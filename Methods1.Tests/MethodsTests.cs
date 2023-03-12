@@ -22,10 +22,46 @@ public class MethodsTests
     [InlineData(0, 100, 100)]
     [InlineData(int.MaxValue, int.MinValue, int.MaxValue)]
     [InlineData(int.MinValue, int.MaxValue, int.MaxValue)]
-    public void Max(int a, int b, int expected)
+    public void Max2(int a, int b, int expected)
     {
         var actual = Methods.Max(a, b);
         Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData(1, 2, 3, 3)]
+    [InlineData(2, 3, 1, 3)]
+    [InlineData(-5, -6, -100, -5)]
+    [InlineData(5, 5, 5, 5)]
+    [InlineData(-20, 20, 0, 20)]
+    [InlineData(int.MaxValue, 0, int.MinValue, int.MaxValue)]
+    [InlineData(int.MinValue, 0, int.MaxValue, int.MaxValue)]
+    public void Max3(int a, int b, int c, int expected)
+    {
+        var actual = Methods.Max(a, b, c);
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData(new[] { 1, 2, 3, 4 }, 4)]
+    [InlineData(new[] { 2, 3, 1, 4 }, 4)]
+    [InlineData(new[] { -5, -6, -100 }, -5)]
+    [InlineData(new[] { 5, 5, 5, 5, 5 }, 5)]
+    [InlineData(new[] { 1 }, 1)]
+    [InlineData(new[] { 0 }, 0)]
+    [InlineData(new[] { -1 }, -1)]
+    public void MaxList(int[] items, int expected)
+    {
+        var list = items.ToList();
+        var actual = Methods.Max(list);
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void MaxListEmpty()
+    {
+        var list = new List<int>();
+        Assert.Throws<Exception>(() => Methods.Max(list));
     }
 
     [Theory]
@@ -38,6 +74,22 @@ public class MethodsTests
         var actual = Methods.Repeat(value, count);
         Assert.Equal(count, actual.Count);
         Assert.All(actual, item => Assert.Equal(item, value));
+    }
+
+    [Theory]
+    [InlineData(new[] { "hello", "world" }, "hello", true)]
+    [InlineData(new[] { "hello", "world" }, "world", true)]
+    [InlineData(new[] { "hello", "world" }, "goodbye", false)]
+    [InlineData(new[] { "test", "test", "test" }, "test", true)]
+    [InlineData(new[] { "test", "test", "test" }, "nope", false)]
+    [InlineData(new[] { "" }, "", true)]
+    [InlineData(new string[0], "hello", false)]
+    [InlineData(new string[0], "", false)]
+    public void Contains(string[] items, string value, bool expected)
+    {
+        var list = items.ToList();
+        var actual = Methods.Contains(list, value);
+        Assert.Equal(expected, actual);
     }
 
     [Theory]
