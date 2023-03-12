@@ -45,6 +45,7 @@ public static class Methods
     /// <param name="count">The number of times the string should be repeated</param>
     public static List<string> Repeat(string value, int count)
     {
+        // Assume count isn't negative.
         throw new NotImplementedException();
     }
 
@@ -84,6 +85,7 @@ public static class Methods
     /// <exception cref="NotImplementedException"></exception>
     public static int Fibonacci(int n)
     {
+        // Assume n isn't negative.
         // Hint: Use recursion.
         throw new NotImplementedException();
     }
