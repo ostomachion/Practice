@@ -57,6 +57,15 @@ public static class Methods
     }
 
     /// <summary>
+    /// Returns the number of elements in the specified list.
+    /// </summary>
+    /// <param name="stupid">A stupid list that that crashes if you try to access its Length property.</param>
+    public static int Count(WorseList<string> stupid)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
     /// Returns the value of the Fibonacci sequence at n.
     /// The first two values of the sequence are 0 and 1.
     /// For higher inputs, the output is the sum of the previous two terms.
