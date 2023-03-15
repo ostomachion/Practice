@@ -45,13 +45,23 @@ public class MethodsTests
     [Theory]
     [InlineData(new[] { 1, 2, 3, 4 }, 4)]
     [InlineData(new[] { 2, 3, 1, 4 }, 4)]
-    [InlineData(new[] { -5, -6, -100 }, -5)]
     [InlineData(new[] { 5, 5, 5, 5, 5 }, 5)]
     [InlineData(new[] { 1 }, 1)]
-    [InlineData(new[] { 0 }, 0)]
-    [InlineData(new[] { -1 }, -1)]
-    [InlineData(new[] { int.MinValue }, int.MinValue)]
     public void MaxList(int[] items, int expected)
+    {
+        var list = items.ToList();
+        var actual = Methods.Max(list);
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData(new[] { 2, 0, 3 }, 3)]
+    [InlineData(new[] { -5, -6, -100 }, -5)]
+    [InlineData(new[] { 2, -2 }, 2)]
+    [InlineData(new[] { -1 }, -1)]
+    [InlineData(new[] { 0 }, 0)]
+    [InlineData(new[] { int.MinValue }, int.MinValue)]
+    public void MaxListHardMode(int[] items, int expected)
     {
         var list = items.ToList();
         var actual = Methods.Max(list);
